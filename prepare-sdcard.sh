@@ -43,5 +43,9 @@ bsdtar -xpf ArchLinuxARM-rpi-2-latest.tar.gz -C /tmp/archroot
 sync
 echo "Copying boot files to SD Card boot partition..."
 mv /tmp/archroot/boot/* /tmp/archboot
+
+echo "Copying aufs-includes and modules to SD card..."
+tar -xzf aufs-modules.tar.gz -C /tmp/archroot
+
 umount /tmp/archboot /tmp/archroot 
 echo "Done."
